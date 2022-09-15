@@ -1,0 +1,71 @@
+/*** User pages ***/
+
+.users-avatar-shadow {
+  box-shadow: 2px 4px 14px 0 rgba(34, 41, 47, 0.4);
+}
+
+// aggrid actions dropdown
+.actions-dropdown {
+  .btn-group .btn {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.14) !important;
+    border-radius: 0.5rem !important;
+  }
+}
+// date picker width
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+// User view Table
+.permissions-table {
+  td,
+  th {
+    padding: 0.5rem;
+  }
+}
+
+// User view info
+.users-page-view-table .user-info {
+  div {
+    padding: 0.5rem;
+  }
+  .user-info-title {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .ag-grid-table {
+    .ag-paging-panel {
+      height: 160px;
+    }
+    .sort-dropdown {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// rohit css
+
+ul.hp-list {
+  list-style: none;
+  padding: 0 40px;
+}
+li.hp-list-1 {
+  line-height: 35px;
+  border: 1px solid#cccccc52;
+  padding: 10px;
+
+}
+span.hp-list-1 {
+  width: 40%;
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
+  float: right;
+}
+li.hp-list-1 p{
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
+}

@@ -1,0 +1,123 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+// dashboard-analytics
+.sales-card {
+  // img left
+  .img-left {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  // img right
+  .img-right {
+    width: 175px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  // backgound color to card
+  &.bg-analytics {
+    background: linear-gradient(118deg, rgba($primary, 1), rgba($primary, 0.7));
+    .avatar {
+      margin-bottom: 2rem;
+      svg {
+        height: 28px;
+        width: 28px;
+      }
+    }
+  }
+}
+
+table.dashboard-table {
+  tr th,
+  tr td {
+    &:first-child {
+      padding-left: 2rem;
+    }
+    &:last-child {
+      padding-right: 2rem;
+    }
+  }
+  td {
+    padding: 0.75rem;
+  }
+}
+
+.support-tracker-card{
+  .apexcharts-canvas{
+    top: -40px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .sales-card {
+    // img left, img-right
+    .img-left,
+    .img-right {
+      width: 140px;
+    }
+  }
+}
+
+
+// rohit css start for card
+
+.bg-t {
+  padding: 25px 20px;
+  border-radius: 10px;
+  background: #2196f3;
+  margin-bottom: 20px;
+
+}
+span.ast-1 {
+  color: #fff;
+  font-weight: bold !important;
+  width: 20% !important;
+  float: left;
+}
+h2.ast-2 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  margin-left: 50px;
+  margin-top: 12px;
+}
+.bg-s {
+  background: #4caf50;
+  padding: 25px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.bg-p {
+  background: #ff5722;
+  padding: 25px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.ast-3.card-title {
+  margin: 15px 0px 0px 23px;
+  font-weight: 800;
+}
+span.ast-4 {
+  margin-left: 10px;
+  font-size: 25px;
+}
+.bg-u {
+  background: #ff9800;
+  padding: 25px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
