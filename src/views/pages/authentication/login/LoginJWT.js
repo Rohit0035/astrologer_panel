@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CardBody, FormGroup, Form, Input, Button, Label } from "reactstrap";
 import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy";
-import { Mail, Lock, Check } from "react-feather";
+import { Mail, Lock, Check, Phone } from "react-feather";
 import { loginWithJWT } from "../../../../redux/actions/auth/loginActions";
 import { connect } from "react-redux";
 import axios from "axios";
@@ -14,25 +14,24 @@ class LoginJWT extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      // email: "",
       mobile: "",
-      password: "",
-      username: "",
-      _id:'',
+      status: true,
+      // username: "",
     };
   }
   handlechange = (e) => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
-  
+
   checkHandler = (e) => {
     e.preventDefault();
     if (e.target.value.trim() == "") {
       this.setState({
-        username: e.target.value.trim(),
+        // username: e.target.value.trim(),
         mobile: "",
-        email: "",
+        // email: "",
       });
       return;
     }
@@ -44,27 +43,24 @@ class LoginJWT extends React.Component {
       ) {
         //invalid email
         this.setState({
-          username: e.target.value.trim(),
+          // username: e.target.value.trim(),
           mobile: "",
-          email: "",
-          _id:'',
+          // email: "",
         });
       } else {
         // valid mail
         this.setState({
-          username: e.target.value.trim(),
+          // username: e.target.value.trim(),
           mobile: "",
-          email: e.target.value.trim(),
-          _id:'',
+          // email: e.target.value.trim(),
         });
       }
     } else {
       //valid mobile
       this.setState({
-        username: e.target.value.trim(),
+        // username: e.target.value.trim(),
         mobile: e.target.value.trim(),
-        email: "",
-        _id:'',
+        // email: "",
       });
     }
   };
@@ -72,27 +68,27 @@ class LoginJWT extends React.Component {
   handleLogin = (e) => {
     e.preventDefault();
     axios
-    .post("http://15.206.122.110:4000/api/user/login", this.state)
+    .post("http://13.235.180.192:8000/user/loginsendotp", this.state)
       // headers: {
       //   "Content-Type":"application/json"
       // },
     // })
-    .then((response) => { 
+    .then((response) => {
       // console.log(response.data.user);
-      console.log(response.data.data);
+      console.log(response.data);
       if(response.data.status === 200){
-      
-        swal(response.data.message)
-        localStorage.setItem("auth", response.data.data?._id);
+
+        swal(response.data.msg)
+        // localStorage.setItem("auth", response.data.data?._id);
         //history.push("/#/");
-        window.location.replace("/#/");
+        window.location.replace("/pages/otp-verify");
       }else if(response.data.status === 401){
-        swal(response.data.message)
+        swal(response.data.msg)
       }
-      //history.push("/");
-      
+      // history.push("/");
+
     })
- 
+
     .catch((error) => {
       console.log(error.response);
       //swal("error!", "Invalied! Please enter valied Phone No. or Password", "error");
@@ -106,18 +102,18 @@ class LoginJWT extends React.Component {
             <FormGroup className="form-label-group position-relative has-icon-left">
               <Input
                   type="text"
-                  name="username"
-                  placeholder="E-mail / Phone"
-                  value={this.state.username}
+                  name="mobile"
+                  placeholder="Enter here your  valid Mobile Number"
+                  value={this.state.mobile}
                   onChange={this.checkHandler}
                   required
               />
                 <div className="form-control-position">
-                  <Mail size={15} />
+                  <Phone size={15} />
                 </div>
-                <Label>Email / Phone</Label>
+                <Label>Phone</Label>
             </FormGroup>
-            <FormGroup className="form-label-group position-relative has-icon-left">
+            {/* <FormGroup className="form-label-group position-relative has-icon-left">
               <Input
                 type="password"
                 name="password"
@@ -130,7 +126,7 @@ class LoginJWT extends React.Component {
                 <Lock size={15} />
               </div>
               <Label>Password</Label>
-            </FormGroup>
+            </FormGroup> */}
             <FormGroup className="d-flex justify-content-between align-items-center">
               <Checkbox
                 color="primary"
@@ -146,8 +142,8 @@ class LoginJWT extends React.Component {
             </FormGroup>
             <div className="d-flex justify-content-between">
               <Route render={({ history}) => (
-                <Button.Ripple 
-                  color="primary" 
+                <Button.Ripple
+                  color="primary"
                   type="submit">
                   Login
               </Button.Ripple>
